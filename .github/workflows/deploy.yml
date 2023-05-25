@@ -1,20 +1,31 @@
 name: Deploy
-'on': push
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  my-job: null
+  my-job:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Install NodeJS
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-    - name: Install Dependencies
-      run: npm ci
-    - name: Test
-      run: npm run test
-    - name: Build
-      run: npm build
-    - name: Deploy
-      run: echo "Deploying..."
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Test
+        run: npm run test
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        run: echo "Deploying..."
