@@ -25,6 +25,5 @@ jobs:
         run: npm run test
 
       - name: Output Issue
-        run: |
-              echo "${{ toJSON(issue) }}"
-              echo "${{ toJSON(github) }}"
+        run: echo "${{ toJSON(issue) }}"
+        run: echo "${{ toJSON(github) }}"
